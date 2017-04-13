@@ -23,7 +23,7 @@
             <id>sonatype-nexus-staging</id>
             <repositories>
                 <repository>
-                    <id>sonatype-staging</id>
+                    <id>sonatype-nexus-staging</id>
                     <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
                     <layout>default</layout>
                     <releases>
