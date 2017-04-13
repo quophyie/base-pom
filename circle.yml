@@ -12,4 +12,4 @@ deployment:
     commands:
         - curl -f -X POST https://circleci.com/api/v1.1/project/github/quophyie/microservicebasepom?circle-token=$CIRCLECI_API_TOKEN
         - curl -f -X POST https://circleci.com/api/v1.1/project/github/quophyie/basecomponents?circle-token=$CIRCLECI_API_TOKEN
-        - curl -f -X POST https://circleci.com/api/v1.1/project/github/quantaljavamicroservicetemplate?circle-token=$CIRCLECI_API_TOKEN
+        - curl -f -X POST https://circleci.com/api/v1.1/project/github/quophyie/quantaljavamicroservicetemplate?circle-token=$CIRCLECI_API_TOKEN
