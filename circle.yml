@@ -10,6 +10,6 @@ deployment:
   master:
     branch: master
     commands:
-        - curl -X POST https://circleci.com/api/v1.1/project/github/quophyie/microservicebasepom?circle-token=$CIRCLE_TOKEN
-        - curl -X POST https://circleci.com/api/v1.1/project/github/quophyie/quophyie/basecomponents?circle-token=$CIRCLE_TOKEN
-        - curl -X POST https://circleci.com/api/v1.1/project/github/quophyie/quantaljavamicroservicetemplate?circle-token=$CIRCLE_TOKEN
+        - curl -X POST https://circleci.com/api/v1.1/project/github/quophyie/microservicebasepom?circle-token=$CIRCLECI_API_TOKEN
+        - curl -X POST https://circleci.com/api/v1.1/project/github/quophyie/quophyie/basecomponents?circle-token=$CIRCLECI_API_TOKEN
+        - curl -X POST https://circleci.com/api/v1.1/project/github/quophyie/quantaljavamicroservicetemplate?circle-token=$CIRCLECI_API_TOKEN
