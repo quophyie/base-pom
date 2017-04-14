@@ -116,7 +116,7 @@
 			<version>RELEASE</version>
 		</dependency>
 
-		<!-- END OF JSONUNIT -->
+		<!-- END OF JSONUNIT  -->
 
 	</dependencies>
 
