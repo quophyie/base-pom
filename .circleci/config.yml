@@ -1,0 +1,46 @@
+version: 2
+jobs:
+  build_base_pom:
+
+    working_directory: ~/base_pom
+
+    docker:
+      - image: circleci/openjdk:8-jdk-browsers
+
+    steps:
+
+      - checkout
+
+      - restore_cache:
+          key: base_pom-{{ checksum "pom.xml" }}
+
+      - run: mvn dependency:go-offline
+
+      - run: mkdir -p /var/log
+      - run: sudo touch /var/log/springboot_log.log /var/log/app_log.log /var/log/app_log.json && sudo chmod 777 /var/log/springboot_log.log /var/log/app_log.log /var/log/app_log.json
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: base_pom-{{ checksum "pom.xml" }}
+
+      - run: mvn package
+
+      - run: mvn deploy -Pgpg -s settings.xml
+
+      - run: "curl -u ${CIRCLE_API_TOKEN}: -d build_parameters[CIRCLE_JOB]=build_microservicebasepom https://circleci.com/api/v1.1/project/github/quophyie/microservicebasepom/tree/master"
+
+      - run: "curl -u ${CIRCLE_API_TOKEN}: -d build_parameters[CIRCLE_JOB]=build_quantaljavamicroservicetemplate https://circleci.com/api/v1.1/project/github/quophyie/quantaljavamicroservicetemplate/tree/master"
+
+      - run: "curl -u ${CIRCLE_API_TOKEN}: -d build_parameters[CIRCLE_JOB]=build_javashared https://circleci.com/api/v1.1/project/github/quophyie/javashared/tree/master"
+
+      - store_test_results:
+          path: target/surefire-reports
+
+      - store_artifacts:
+          path: target/base-pom-0.0.1-SNAPSHOT.jar
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build_base_pom
