@@ -41,6 +41,6 @@ jobs:
           path: target/base-pom-0.0.1-SNAPSHOT.jar
 workflows:
   version: 2
-  build_workflow:
+  build_project:
     jobs:
       - build_base_pom
